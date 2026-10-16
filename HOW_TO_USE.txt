@@ -2,13 +2,13 @@
 
 **1.** Take a screenshot of **ONLY team A's nicknames** — places 1 to 10.  
 Hotkey: **`SHIFT + WIN + S`** → select the area → screenshot goes to clipboard automatically.
-
+1.2 press  SCAN 
 **2.** Take a screenshot of team B **the same way** (**`SHIFT + WIN + S`**).
-
+2.2 press  SCAN 
 **3.** Click the **`⚖️ Compare`** button.
 
 **4.** Done — the comparison table appears at the bottom of the window.  
-Click **`📋 Copy to clipboard`** to save a screenshot of the result for Discord.
+Click **`📋 Copy to clipboard`** to save a screenshot.
 
 ---
 
@@ -33,11 +33,3 @@ Click **`📋 Copy to clipboard`** to save a screenshot of the result for Discor
 - 🟠 **Average**
 - 🔴 **Strong**
 - 🟣 **Elite**
-
----
-
-### ⚠️ IMPORTANT
-
-- The screenshot must contain **only nicknames** (no extra panels, buttons, or chat).
-- If OCR fails — use **`✏️ Manual Input`**.
-- If Windows Defender flags the `.exe` — it's a **false positive**, click "More info" → "Run anyway".
