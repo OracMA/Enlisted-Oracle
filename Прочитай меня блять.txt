@@ -5,7 +5,7 @@
 и показывает статистику + сравнение команд.
 
 ## Установка
-
+1.-01 РАСПАКУЙ АХРИВ ENLISTEDPLAYERFULL В КОРНЕВУЮ ПАПКУ РЯДОМ С GUI.PY И MAIN.PY
 1. Установи Python 3.10+ — https://www.python.org/downloads/
    ⚠️ При установке поставь галочку **"Add Python to PATH"**.
 
