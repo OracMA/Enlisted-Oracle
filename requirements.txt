@@ -1,0 +1,12 @@
+PyQt6>=6.5
+Pillow>=10.0
+rapidfuzz>=3.0
+numpy>=1.24
+psutil>=5.9
+chrome-lens-py
+wcwidth
+jellyfish
+requests
+beautifulsoup4
+ttkbootstrap
+qdarkstyle>=3.2
