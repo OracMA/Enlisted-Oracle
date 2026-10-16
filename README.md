@@ -1,3 +1,27 @@
+# Enlisted Oracle
+
+A tool for analyzing players and teams in the game **Enlisted**.
+It captures screenshots, extracts nicknames, looks up their career stats,
+and compares two teams to predict the outcome of a battle.
+
+> 🇷🇺 Русскоязычная версия: см. файл «Прочитай меня блять»
+
+---
+
+## ✨ Features
+
+- 🔍 **OCR recognition** of player nicknames from screenshots
+- 📁 **Player stats lookup** from a local database (687k+ entries)
+- ⚖️ **Team comparison** with a final score and verdict
+- 📊 **Radial (radar) diagrams** — visual side-by-side comparison of both teams
+  by 7 key metrics, with the opponent's polygon drawn as a faint ghost overlay
+- 🎨 **Color-coded metrics** (K/D, win rate, ELO, headshots, captures, APC,
+  vehicles, builds)
+- 🖥️ **GUI (PyQt6)** and CLI modes
+- 🌐 **Bilingual interface** (Russian / English)
+
+---
+
 ## 📦 Installation
 
 ### Windows (recommended)
