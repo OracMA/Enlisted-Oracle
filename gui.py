@@ -4,6 +4,7 @@ from PyQt6.QtMultimedia import QSoundEffect
 import sys
 import io
 import os
+from PyQt6.QtCore import QUrl, Qt, QTimer
 import base64
 import threading
 import time
@@ -1101,9 +1102,26 @@ class EnlistedOracleUI(QMainWindow):
             colors_b.append(rank_to_color(value_to_rank(b_val, b_lim)))
             labels.append(LANG.get(label_key, label_key))
 
-        # Каждый радар получает призрак соседа — для визуального сравнения
-        self.radar_a.update_radar(labels, pct_a, colors_a, ghost_values=pct_b)
-        self.radar_b.update_radar(labels, pct_b, colors_b, ghost_values=pct_a)
+        # ⭐ ЗАПУСКАЕМ JOJO-АНИМАЦИЮ (вместо старого update_radar)
+        
+        # 1. Левый радар (Команда А) стартует сразу
+        self.radar_a.start_jojo_animation(
+            metrics=labels,
+            target_values=pct_a,
+            rank_colors=colors_a,
+            ghost_values=pct_b,
+            duration_ms=666
+        )
+        
+        # 2. Правый радар (Команда Б) стартует с задержкой в 150 мс
+        # (чтобы был эффект "взрыва" сначала слева, потом справа)
+        QTimer.singleShot(150, lambda: self.radar_b.start_jojo_animation(
+            metrics=labels,
+            target_values=pct_b,
+            rank_colors=colors_b,
+            ghost_values=pct_a,
+            duration_ms=777
+        ))
 
     def _fill_compare_table(self, text):
         """Парсит вывод compare_two_teams и заполняет таблицу.
@@ -1322,7 +1340,7 @@ class EnlistedOracleUI(QMainWindow):
         self._anim_step = 0
         self._anim_timer = QTimer(self)
         self._anim_timer.timeout.connect(self._tick_donation)
-        self._anim_timer.start(50)   # 20 кадров в секунду
+        self._anim_timer.start(16)   # 20 кадров в секунду
 
     def _tick_donation(self):
         """Один кадр парения — синусоида ±4 px."""
@@ -1342,7 +1360,7 @@ class EnlistedOracleUI(QMainWindow):
                cat_path = p
                break
 
-        W, H = 420, 400
+        W, H = 420, 620
 
         # --- Создаём диалог ---
         dlg = QDialog(self)
@@ -1447,7 +1465,7 @@ class EnlistedOracleUI(QMainWindow):
         )
         layout.addWidget(link)
 
-        # --- Telegram ---
+        # --- Пункт 3 (Улучшенная система) ---
         tg = QLabel(LANG["dlg_donation_tg"])
         tg.setTextFormat(Qt.TextFormat.RichText)
         tg.setStyleSheet(
@@ -1456,24 +1474,24 @@ class EnlistedOracleUI(QMainWindow):
         )
         layout.addWidget(tg)
 
-        # --- Кнопка "Скопировать карту" ---
-        btn_copy_card = QPushButton("📋 Скопировать номер карты")
+        # --- Долгосрочная перспектива: заголовок ---
+        future_title = QLabel(LANG["dlg_donation_future_title"])
+        future_title.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        future_title.setStyleSheet(
+            "font-weight: bold; color: #c77dff; padding: 6px; margin-top: 12px;"
+            "background-color: rgba(0, 0, 0, 180); border-radius: 6px;"
+        )
+        layout.addWidget(future_title)
 
-        def copy_card():
-            import re
-            from PyQt6.QtCore import QTimer
-            raw = LANG["dlg_donation_card"]
-            m = re.search(r'(\d[\d\s]{10,})', raw)
-            if m:
-                QApplication.clipboard().setText(m.group(1).strip())
-                btn_copy_card.setText("✅ Скопировано")
-                QTimer.singleShot(
-                    2000,
-                    lambda: btn_copy_card.setText("📋 Скопировать номер карты")
-                )
-
-        btn_copy_card.clicked.connect(copy_card)
-        layout.addWidget(btn_copy_card)
+        # --- Долгосрочная перспектива: текст ---
+        future_text = QLabel(LANG["dlg_donation_future_text"])
+        future_text.setWordWrap(True)
+        future_text.setAlignment(Qt.AlignmentFlag.AlignLeft)
+        future_text.setStyleSheet(
+            "font-size: 12px; padding: 8px; color: #e0e0e0; font-style: italic;"
+            "background-color: rgba(0, 0, 0, 160); border-radius: 6px;"
+        )
+        layout.addWidget(future_text)
 
         layout.addStretch()
 

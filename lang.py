@@ -1,5 +1,4 @@
 # lang.py — полный словарь локализации для Enlisted Oracle
-# Все ключи внутри LANG_RU и LANG_EN. Никаких дубликатов и «висячих» строк.
 
 LANG_RU = {
     # --- Кнопки ---
@@ -28,6 +27,7 @@ LANG_RU = {
     "cmp_team_b":    "Ком. B",
     "cmp_diff":      "Разница",
     "cmp_stronger":  "Сильнее",
+    "cmp_equal":     "Равно",
 
     # --- Столбцы PlayersTable ---
     "col_nick":      "Ник",
@@ -40,6 +40,16 @@ LANG_RU = {
     "col_elo":       "ELO",
     "col_veh":       "Техника",
     "col_built":     "Построек",
+
+    # --- Подписи для Радара ---
+    "radar_kd":    "K/D",
+    "radar_wr":    "WR",
+    "radar_elo":   "ELO",
+    "radar_cap":   "ЗАХВ",
+    "radar_hs":    "ХЕДШ",
+    "radar_built": "ПОСТР",
+    "radar_apc":   "БТР",
+    "radar_veh":   "ТЕХН",  # Добавил пропущенный ключ
 
     # --- Подсказка цветов ---
     "color_hint": (
@@ -98,14 +108,16 @@ LANG_RU = {
     "dlg_no":        "Нет",
     "dlg_close":     "Закрыть",
 
-     # --- Диалог доната ---
-    "dlg_donation_title":      "заглушка",
-    "dlg_donation_header":     "заглушка",
-    "dlg_donation_text":       "заглушка",
-    "dlg_donation_requisites": "заглушка",
-    "dlg_donation_card":       "заглушка",
-    "dlg_donation_boosty":     "заглушка",
-    "dlg_donation_tg":         "заглушка",
+    # --- Диалог Дорожной карты ---
+    "dlg_donation_title":        "Дорожная карта",
+    "dlg_donation_header":       "🚀 Планы по развитию",
+    "dlg_donation_text":         "Что мы хотим добавить в ближайшее время:",
+    "dlg_donation_requisites":   "📌 В разработке:",
+    "dlg_donation_card":         "🔹 Скан 2 команд за 1 скриншот",
+    "dlg_donation_boosty":       "🔹 Обнаружение ботов",
+    "dlg_donation_tg":           "🔹 Улучшенная система расчета команд",
+    "dlg_donation_future_title": "🔮 Долгосрочная перспектива",
+    "dlg_donation_future_text":  "Создание автоматической самообучаемой системы.\n\nОна будет проверять свои прогнозы по реальным реплеям матчей и вносить в себя коррективы для повышения точности.",
 
     # --- Диалог ручного ввода ---
     "manual_title":       "Ручной ввод ников",
@@ -114,20 +126,10 @@ LANG_RU = {
     "manual_remove":      "Удалить выбранное",
     "manual_done":        "Готово",
 
- # --- Финальный вердикт (для UI-таблицы) ---
-      "final_verdict_a":     "ФИНАЛЬНАЯ ОЦЕНКА:  Команда A сильнее на {0}%",
+    # --- Финальный вердикт (для UI-таблицы) ---
+    "final_verdict_a":     "ФИНАЛЬНАЯ ОЦЕНКА:  Команда A сильнее на {0}%",
     "final_verdict_b":     "ФИНАЛЬНАЯ ОЦЕНКА:  Команда B сильнее на {0}%",
     "final_verdict_equal": "ФИНАЛЬНАЯ ОЦЕНКА:  Команды равны (0%)",
-
-    "radar_kd":    "K/D",
-    "radar_wr":    "WR",
-    "radar_elo":   "ELO",
-    "radar_cap":   "ЗАХВ",
-    "radar_hs":    "ХЕДШ",
-    "radar_built": "ПОСТР",
-    "radar_apc":   "БТР",
-    "cmp_equal": "Равно",
-
 }
 
 
@@ -158,6 +160,7 @@ LANG_EN = {
     "cmp_team_b":    "Team B",
     "cmp_diff":      "Diff",
     "cmp_stronger":  "Stronger",
+    "cmp_equal":     "Equal",
 
     # --- PlayersTable columns ---
     "col_nick":      "Nick",
@@ -170,6 +173,16 @@ LANG_EN = {
     "col_elo":       "ELO",
     "col_veh":       "Vehicles",
     "col_built":     "Built",
+
+    # --- Radar labels ---
+    "radar_kd":    "K/D",
+    "radar_wr":    "WR",
+    "radar_elo":   "ELO",
+    "radar_cap":   "CAP",
+    "radar_hs":    "HS",
+    "radar_built": "BLD",
+    "radar_apc":   "APC",
+    "radar_veh":   "VEH",  # Added missing key
 
     # --- Color legend ---
     "color_hint": (
@@ -228,15 +241,17 @@ LANG_EN = {
     "dlg_no":        "No",
     "dlg_close":     "Close",
 
-        # --- Donation dialog ---
-    "dlg_donation_title":      "placeholder",
-    "dlg_donation_header":     "placeholder",
-    "dlg_donation_text":       "placeholder",
-    "dlg_donation_requisites": "placeholder",
-    "dlg_donation_card":       "placeholder",
-    "dlg_donation_boosty":     "placeholder",
-    "dlg_donation_tg":         "placeholder",
-    
+    # --- Roadmap dialog ---
+    "dlg_donation_title":        "Roadmap",
+    "dlg_donation_header":       "🚀 Development plans",
+    "dlg_donation_text":         "What we want to add in the near future:",
+    "dlg_donation_requisites":   "📌 In development:",
+    "dlg_donation_card":         "🔹 Scan 2 teams in 1 screenshot",
+    "dlg_donation_boosty":       "🔹 Bot detection",
+    "dlg_donation_tg":           "🔹 Improved team calculation system",
+    "dlg_donation_future_title": "🔮 Long-term vision",
+    "dlg_donation_future_text":  "Creating an automatic self-learning system.\n\nIt will verify its predictions using real match replays and adjust itself to improve accuracy.",
+
     # --- Manual input dialog ---
     "manual_title":       "Manual Nickname Input",
     "manual_placeholder": "Enter nickname and press Add",
@@ -244,18 +259,8 @@ LANG_EN = {
     "manual_remove":      "Remove selected",
     "manual_done":        "Done",
 
- # --- Final verdict (for UI table) ---
-   "final_verdict_a":     "FINAL SCORE:  Team A is stronger by {0}%",
-  "final_verdict_b":     "FINAL SCORE:  Team B is stronger by {0}%",
-   "final_verdict_equal": "FINAL SCORE:  Teams are equal (0%)",
-  #   радарп 
-
-    "radar_kd":    "K/D",
-    "radar_wr":    "WR",
-    "radar_elo":   "ELO",
-    "radar_cap":   "CAP",
-    "radar_hs":    "HS",
-    "radar_built": "BLD",
-    "radar_apc":   "APC",
-    "cmp_equal": "Equal",
-    }   
+    # --- Final verdict (for UI table) ---
+    "final_verdict_a":     "FINAL SCORE:  Team A is stronger by {0}%",
+    "final_verdict_b":     "FINAL SCORE:  Team B is stronger by {0}%",
+    "final_verdict_equal": "FINAL SCORE:  Teams are equal (0%)",
+}
